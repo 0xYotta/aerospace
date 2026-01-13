@@ -4,7 +4,8 @@
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
+start-at-login = true
+after-login-command = ['exec-and-forget aerospace']
 
 # Run Sketchybar together with AeroSpace
 # sketchbar has a built-in detection of already running process,
@@ -13,9 +14,10 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
+#0xff00ffd5
 after-startup-command = [
   'exec-and-forget sketchybar',
-  'exec-and-forget borders active_color=0xff00ffd5 inactive_color=0x1a00ffd5 width=8.0',
+  'exec-and-forget /bin/bash -c "sleep 1 && borders active_color=0xff00ffd5 inactive_color=0xffC4E0E0 width=7.0"',
 ]
 
 # Notify Sketchybar about workspace change
@@ -25,9 +27,6 @@ exec-on-workspace-change = [
   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
 
-
-# Start AeroSpace at login
-start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -78,7 +77,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
-outer.top = 40
+outer.top = 10
 outer.right = 10
 
 # 'main' binding mode declaration
@@ -117,6 +116,7 @@ outer.right = 10
 # end tell'
 # '''
 
+#INFO: LAUNCH APPS
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 #INFO: MEH + / and MEH + ,
@@ -150,13 +150,19 @@ cmd-alt-ctrl-shift-equal = 'resize smart +100'
 #INFO: Workspaces
 cmd-alt-ctrl-shift-q = 'workspace 1'
 cmd-alt-ctrl-shift-w = 'workspace 2'
-cmd-alt-ctrl-shift-f = 'workspace 3'
+cmd-alt-ctrl-shift-f = 'workspace F'
 cmd-alt-ctrl-shift-p = 'workspace 4'
 cmd-alt-ctrl-shift-b = 'workspace 5'
-cmd-alt-ctrl-shift-j = 'workspace 6'
-cmd-alt-ctrl-shift-l = 'workspace 7'
-cmd-alt-ctrl-shift-u = 'workspace 8'
-cmd-alt-ctrl-shift-y = 'workspace 9'
+cmd-alt-ctrl-shift-z = 'workspace Z'
+cmd-alt-ctrl-shift-r = 'workspace R'
+cmd-alt-ctrl-shift-d = 'workspace D'
+cmd-alt-ctrl-shift-s = 'workspace S'
+cmd-alt-ctrl-shift-t = 'workspace T'
+cmd-alt-ctrl-shift-g = 'workspace G'
+cmd-alt-ctrl-shift-m = 'workspace M'
+cmd-alt-ctrl-shift-h = 'workspace H'
+cmd-alt-ctrl-shift-j = 'workspace J'
+
 # bind = 'workspace A'
 
 
@@ -164,13 +170,18 @@ cmd-alt-ctrl-shift-y = 'workspace 9'
 #INFO: Moving windows to workspaces
 cmd-alt-q = 'move-node-to-workspace 1'
 cmd-alt-w = 'move-node-to-workspace 2'
-cmd-alt-f = 'move-node-to-workspace 3'
+cmd-alt-f = 'move-node-to-workspace F'
 cmd-alt-p = 'move-node-to-workspace 4'
 cmd-alt-b = 'move-node-to-workspace 5'
-cmd-alt-j = 'move-node-to-workspace 6'
-cmd-alt-l = 'move-node-to-workspace 7'
-cmd-alt-u = 'move-node-to-workspace 8'
-cmd-alt-i = 'move-node-to-workspace 9'
+cmd-alt-z = 'move-node-to-workspace Z'
+cmd-alt-r = 'move-node-to-workspace R'
+cmd-alt-d = 'move-node-to-workspace D'
+cmd-alt-s = 'move-node-to-workspace S'
+cmd-alt-t = 'move-node-to-workspace T'
+cmd-alt-g = 'move-node-to-workspace G'
+cmd-alt-m = 'move-node-to-workspace M'
+cmd-alt-h = 'move-node-to-workspace H'
+cmd-alt-j = 'move-node-to-workspace J'
 # bind = 'move-node-to-workspace A'
 
 alt-ctrl-shift-m = 'fullscreen'
@@ -181,6 +192,11 @@ alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 #C: MOVING WORKSPACE TO THE NEXT MONITOR (if exist)  
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+
+#C: MOVING NODE TO THE NEXT MONITOR (if exist)  
+alt-shift-cmd-ctrl-tab = 'move-node-to-monitor --wrap-around next'
+
 #I:END OF MAIN:
 ########################################################
 
@@ -189,7 +205,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 ################################################
 #
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-cmd-alt-ctrl-shift-semicolon = 'mode service'
+cmd-alt-ctrl-shift-backslash = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
